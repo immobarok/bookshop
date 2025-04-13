@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router'
-import amarbook from '../../assets/logo.png'
+import amarbook from '../../assets/images/logo.png'
 
 const Navbar = () => {
   const link = <div className='flex justify-center items-center space-x-3 font-medium'>
