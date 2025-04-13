@@ -10,10 +10,10 @@ import Dashboard from './components/Dashboard/Dashboard.jsx'
 const router = createBrowserRouter([
   {
     path: "/", Component: Root,
-    errorElement: <Error></Error>,
     children: [
       { index: true, Component: Home },
-      { path: 'dashboard', Component: Dashboard }
+      { path: 'dashboard', Component: Dashboard },
+      {path:'*',Component:Error}
     ]
   }
 ])
