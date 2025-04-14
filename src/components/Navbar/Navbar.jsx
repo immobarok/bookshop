@@ -1,13 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import amarbook from '../../assets/images/logo.png'
 
 const Navbar = () => {
-  const link = <div className='flex justify-center items-center space-x-3 font-medium'>
+  const link = <ul className='flex flex-col items-start sm:flex-col lg:flex lg:flex-row justify-center  font-medium gap-3'>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink className='border border-lime-400 px-6 py-1 rounded-sm text-lime-400'>Latest Book </NavLink></li>
-    <li><NavLink>Page to Read </NavLink></li>
-  </div>
+    <li>
+      <NavLink
+        to='/latest'
+        className='border border-lime-400 px-6 py-1 rounded-sm text-lime-400'
+      >
+        Latest Book
+      </NavLink>
+    </li>
+    <li><NavLink to='/read'>Page to Read</NavLink></li>
+  </ul>
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -23,9 +31,9 @@ const Navbar = () => {
             }
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-bold">
+        <NavLink to="/" className="btn btn-ghost text-xl font-bold">
           <img width={80} src={amarbook} alt="" />
-        </a>
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -35,7 +43,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <NavLink className="btn btn-info px-6 py-2 text-white">Login</NavLink>
       </div>
     </div>
   )

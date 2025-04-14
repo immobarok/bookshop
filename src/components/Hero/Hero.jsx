@@ -20,7 +20,7 @@ export default function Hero() {
                         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                         quasi. In deleniti eaque aut repudiandae et a id nisi.
                     </p>
-                    <button className="btn bg-lime-500 font-medium hover:bg-transparent hover:border-lime-400 transition-colors duration-300">
+                    <button className="btn bg-lime-500 font-medium hover:bg-transparent hover:border-lime-400 transition-colors duration-300 text-lime-100">
                         View The List
                     </button>
                 </div>
