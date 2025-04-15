@@ -24,7 +24,7 @@ function ListedBook() {
    }, [allBooks])
    return (
       <div>
-         <h3 className='text-5xl my-6 text-center font-bold text-gray-700 border-0 bg-gray-100/70 py-4 rounded-md'>Books</h3>
+         <h3 className='text-5xl my-6 text-center font-bold text-gray-700 border-0 bg-gray-100/70 dark:bg-gray-100/10 py-4 dark:text-white rounded-md'>Books</h3>
          <div className='flex items-center justify-center'>
             <button onClick={handleToggler} className="btn bg-lime-500 text-white w-56" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}>
                Sort By {toggle ? <FaAngleDown /> : <FaAngleUp />}

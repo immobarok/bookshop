@@ -8,7 +8,7 @@ export default function Book({ book }) {
     return (
         <Link to={`/books/${bookId}`} className="flex justify-center">
             <div className="card bg-base-100 w-full sm:w-96 drop-shadow-sm border border-amber-50/5 flex flex-col h-full">
-                <figure className='bg-gray-100/60 m-10 py-4 rounded-md'>
+                <figure className='bg-gray-100/60 dark:bg-gray-100/5 m-10 py-4 rounded-md'>
                     <img
                         src={image}
                         className='h-56'
