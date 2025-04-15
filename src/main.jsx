@@ -7,6 +7,7 @@ import Error from './components/Error/Error.jsx'
 import Home from './components/Home/Home.jsx'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import BookDetails from './components/BookDetails/BookDetails.jsx'
+import ListedBook from './components/ListedBook/ListedBook.jsx'
 
 const router = createBrowserRouter([
   {
@@ -15,8 +16,22 @@ const router = createBrowserRouter([
       { index: true, Component: Home },
       {
         path: 'books/:bookId',
-        loader: () => fetch('./booksData.json'),
+        loader: async () => {
+          const response = await fetch('./booksData.json');
+          const data = await response.json();
+          return data;
+        },
+
         Component: BookDetails,
+      },
+      {
+        path: 'listedBooks',
+        loader: async () => {
+          const response = await fetch('./booksData.json');
+          const data = await response.json();
+          return data;
+        },
+        Component: ListedBook
       },
       { path: 'dashboard', Component: Dashboard },
       { path: '*', Component: Error }

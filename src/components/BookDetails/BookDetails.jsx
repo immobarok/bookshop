@@ -11,6 +11,9 @@ export default function BookDetails() {
     const handleMarkAsRead = (id) => {
         addToStoredReadList(id);
     }
+    const handleAddToWishList = (id) => {
+        addToStoredReadList(id);
+    }
 
     return (
         <div className='container mx-auto px-4 py-10'>
@@ -91,7 +94,7 @@ export default function BookDetails() {
                         </div>
                         <div className='flex gap-4 mt-5'>
                             <button className="btn btn-outline btn-accent" onClick={() => handleMarkAsRead(bookId)}>Mark as Read</button>
-                            <button className='btn btn-accent'>Add to Wishlist</button>
+                            <button className='btn btn-accent' onClick={() => handleAddToWishList(bookId)}>Add to Wishlist</button>
                         </div>
                     </div>
                 </section>

@@ -5,14 +5,7 @@ import amarbook from '../../assets/images/logo.png'
 const Navbar = () => {
   const link = <ul className='flex flex-col items-start sm:flex-col lg:flex lg:flex-row justify-center  font-medium gap-3'>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li>
-      <NavLink
-        to='/latest'
-        className='border border-lime-400 px-6 py-1 rounded-sm text-lime-400'
-      >
-        Latest Book
-      </NavLink>
-    </li>
+    <li><NavLink to='/listedBooks'>Listed Books</NavLink></li>
     <li><NavLink to='/read'>Page to Read</NavLink></li>
   </ul>
 
