@@ -8,7 +8,7 @@ export default function Hero() {
                 <div className='w-full lg:w-1/2 flex items-center justify-center mb-8 lg:mb-0'>
                     <img
                         src={bannerImage}
-                        className="max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-2xl"
+                        className="max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-sm"
                         alt="Books"
                     />
                 </div>
@@ -20,7 +20,7 @@ export default function Hero() {
                         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                         quasi. In deleniti eaque aut repudiandae et a id nisi.
                     </p>
-                    <button className="btn bg-lime-500 font-medium hover:bg-transparent hover:border-lime-400 transition-colors duration-300 text-lime-100">
+                    <button className="btn bg-lime-500 font-medium hover:bg-transparent hover:border-lime-400 transition-colors duration-300 text-lime-100 dark:text-white hover:text-gray-600">
                         View The List
                     </button>
                 </div>

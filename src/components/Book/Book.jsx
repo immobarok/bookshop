@@ -3,12 +3,12 @@ import { StarRating } from './../StarRating/StarRating';
 import { Link } from 'react-router';
 
 export default function Book({ book }) {
-    const { image, bookName, author, review, totalPages, rating, category, tags, badge,bookId } = book;
+    const { image, bookName, author, review, totalPages, rating, category, tags, badge, bookId } = book;
 
     return (
-        <Link to={`/books/${bookId}`}>
-            <div className="card bg-base-100 w-96 shadow-sm border border-amber-50/5 flex flex-col h-full">
-                <figure className='bg-slate-50/2 m-10 py-4 rounded-md'>
+        <Link to={`/books/${bookId}`} className="flex justify-center">
+            <div className="card bg-base-100 w-full sm:w-96 drop-shadow-sm border border-amber-50/5 flex flex-col h-full">
+                <figure className='bg-gray-100/60 m-10 py-4 rounded-md'>
                     <img
                         src={image}
                         className='h-56'
