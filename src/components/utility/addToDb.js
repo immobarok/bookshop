@@ -1,55 +1,77 @@
 import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const getStoredReadList = () => {
-   // read-list
    const storedListStr = localStorage.getItem('read-list');
    if (storedListStr) {
-      const storedList = JSON.parse(storedListStr);
-      return storedList;
-   }
-   else {
+      return JSON.parse(storedListStr);
+   } else {
       return [];
    }
-}
+};
 
 const addToStoredReadList = (id) => {
    const storedList = getStoredReadList();
    if (storedList.includes(id)) {
-      // already exists. do not add it
-      console.log(id, 'already exists in the read list')
-   }
-   else {
+      toast.warning('📚 Already marked as read!', {
+         position: "top-right",
+         autoClose: 2500,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         theme: "colored"
+      });
+   } else {
       storedList.push(id);
-      const storedListStr = JSON.stringify(storedList);
-      localStorage.setItem('read-list', storedListStr);
-      // ideally trigger toast from the component
-      toast('This book is added to your read list.')
+      localStorage.setItem('read-list', JSON.stringify(storedList));
+      toast.success('Book added to your read list!', {
+         position: "top-right",
+         autoClose: 2500,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         theme: "colored"
+      });
    }
-}
+};
 
 const getStoredWishList = () => {
-   // read-list
    const storedWishListStr = localStorage.getItem('wish-list');
    if (storedWishListStr) {
-      const storedWishList = JSON.parse(storedWishListStr);
-      return storedWishList;
-   }
-   else {
+      return JSON.parse(storedWishListStr);
+   } else {
       return [];
    }
-}
+};
 
 const addToStoredWishList = (id) => {
    const storedWishList = getStoredWishList();
    if (storedWishList.includes(id)) {
-      // already exists. do not add it
-      console.log(id, 'already exists in the read list')
-   }
-   else {
+      toast.info('❤️ Already in your wishlist!', {
+         position: "top-right",
+         autoClose: 2500,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         theme: "light"
+      });
+   } else {
       storedWishList.push(id);
-      const storedWishListStr = JSON.stringify(storedWishList);
-      localStorage.setItem('wish-list', storedWishListStr);
+      localStorage.setItem('wish-list', JSON.stringify(storedWishList));
+      toast.success('🎉 Added to your wishlist!', {
+         position: "top-right",
+         autoClose: 2500,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         theme: "light"
+      });
    }
-}
+};
 
-export { addToStoredReadList, addToStoredWishList, getStoredReadList }
+
+export { addToStoredReadList, addToStoredWishList, getStoredReadList };

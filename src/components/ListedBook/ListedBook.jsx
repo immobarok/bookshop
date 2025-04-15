@@ -5,11 +5,15 @@ import 'react-tabs/style/react-tabs.css';
 import { getStoredReadList } from '../utility/addToDb';
 import ReadList from '../ReadList/ReadList';
 import { FaAngleDown } from "react-icons/fa6";
+import { FaAngleUp } from 'react-icons/fa6';
 
 function ListedBook() {
    const [readList, setReadList] = useState([]);
    const allBooks = useLoaderData();
    const [toggle, isToggle] = useState(false);
+   const handleToggler = () => {
+      isToggle(!toggle);
+   }
    useEffect(() => {
       if (allBooks.length) {
          const storedReadList = getStoredReadList();
@@ -22,8 +26,8 @@ function ListedBook() {
       <div>
          <h3 className='text-5xl my-6 text-center font-bold text-gray-700 border-0 bg-gray-100/70 py-4 rounded-md'>Books</h3>
          <div className='flex items-center justify-center'>
-            <button className="btn bg-lime-500 text-white w-56" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}>
-               Sort By <FaAngleDown />
+            <button onClick={handleToggler} className="btn bg-lime-500 text-white w-56" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}>
+               Sort By {toggle ? <FaAngleDown /> : <FaAngleUp />}
             </button>
          </div>
 
