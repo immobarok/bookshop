@@ -11,6 +11,7 @@ function ListedBook() {
    const [readList, setReadList] = useState([]);
    const allBooks = useLoaderData();
    const [toggle, isToggle] = useState(false);
+   const [sort, setSort] = useState('');
    const handleToggler = () => {
       isToggle(!toggle);
    }
@@ -22,19 +23,37 @@ function ListedBook() {
          setReadList(readBookList);
       }
    }, [allBooks])
+
+   /* Handle sort */
+   const handleSort = (sortType) => {
+      setSort(sortType);
+      if (sortType === 'No of Pages') {
+         const sortedReadList = [...readList].sort((a, b) => a.totalPages - b.totalPages);
+         console.log(sortedReadList);
+         setReadList(sortedReadList)
+      } else if (sortType === 'Ratings') {
+         const sortedReadList = [...readList].sort((a, b) => a.rating - b.rating);
+         setReadList(sortedReadList)
+      }
+   }
    return (
       <div>
          <h3 className='text-5xl my-6 text-center font-bold text-gray-700 border-0 bg-gray-100/70 dark:bg-gray-100/10 py-4 dark:text-white rounded-md'>Books</h3>
          <div className='flex items-center justify-center'>
             <button onClick={handleToggler} className="btn bg-lime-500 text-white w-56" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}>
-               Sort By {toggle ? <FaAngleDown /> : <FaAngleUp />}
+               {
+                  sort ? `Sort by ${sort}` : 'Sort by'
+               }
+               {
+                  toggle ? <FaAngleDown /> : <FaAngleUp />
+               }
             </button>
          </div>
 
          <ul className="dropdown menu w-56 rounded-box bg-base-100 shadow-sm"
             popover="auto" id="popover-1" style={{ positionAnchor: "--anchor-1" } /* as React.CSSProperties */}>
-            <li><a>Author name</a></li>
-            <li><a>Date</a></li>
+            <li onClick={() => handleSort('Ratings')}><a>Rating</a></li>
+            <li onClick={() => handleSort('No of Pages')}><a>No of Pages</a></li>
          </ul>
          <Tabs>
             <TabList>
